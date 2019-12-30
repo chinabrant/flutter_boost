@@ -369,6 +369,12 @@ class ManagerNavigatorObserver extends BoostNavigatorObserver {
     for (BoostNavigatorObserver observer in _boostObservers) {
       observer.didPush(route, previousRoute);
     }
+
+    for (BoostNavigatorObserver observer in FlutterBoost
+            .singleton.observersHolder
+            .observersOf<BoostNavigatorObserver>()) {
+          observer.didPush(route, previousRoute);
+        }
   }
 
   @override
@@ -377,6 +383,12 @@ class ManagerNavigatorObserver extends BoostNavigatorObserver {
     for (BoostNavigatorObserver observer in _boostObservers) {
       observer.didPop(route, previousRoute);
     }
+
+    for (BoostNavigatorObserver observer in FlutterBoost
+            .singleton.observersHolder
+            .observersOf<BoostNavigatorObserver>()) {
+          observer.didPop(route, previousRoute);
+        }
   }
 
   @override
@@ -385,6 +397,12 @@ class ManagerNavigatorObserver extends BoostNavigatorObserver {
     for (BoostNavigatorObserver observer in _boostObservers) {
       observer.didRemove(route, previousRoute);
     }
+
+    for (BoostNavigatorObserver observer in FlutterBoost
+            .singleton.observersHolder
+            .observersOf<BoostNavigatorObserver>()) {
+          observer.didRemove(route, previousRoute);
+        }
   }
 
   @override
@@ -393,5 +411,11 @@ class ManagerNavigatorObserver extends BoostNavigatorObserver {
     for (BoostNavigatorObserver observer in _boostObservers) {
       observer.didReplace(newRoute: newRoute, oldRoute: oldRoute);
     }
+
+    for (BoostNavigatorObserver observer in FlutterBoost
+            .singleton.observersHolder
+            .observersOf<BoostNavigatorObserver>()) {
+          observer.didReplace(newRoute: newRoute, oldRoute: oldRoute);
+        }
   }
 }
